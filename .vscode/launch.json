@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - digit",
+            "request": "launch",
+            "mainClass": "digit",
+            "projectName": "ACSL_af648afe"
+        }
+    ]
+}
