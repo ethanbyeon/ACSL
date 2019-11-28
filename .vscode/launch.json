@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - srdigit",
+            "request": "launch",
+            "mainClass": "srdigit",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - jrdigit",
             "request": "launch",
             "mainClass": "jrdigit",
