@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - caesarcipher",
+            "request": "launch",
+            "mainClass": "caesarcipher",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - numbertransformation",
             "request": "launch",
             "mainClass": "numbertransformation",
