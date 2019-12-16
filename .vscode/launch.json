@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - numtransform",
+            "request": "launch",
+            "mainClass": "School.numtransform",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - numtransform_senior",
+            "request": "launch",
+            "mainClass": "numtransform_senior",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - caesarcipher",
             "request": "launch",
             "mainClass": "caesarcipher",

@@ -3,12 +3,12 @@
 import java.util.*;
 import java.io.*;
 
-public class numbertransformation {
+public class numtransform {
     static Scanner in;
     static String s;
     static int n;
     public static void main(String[] args) throws IOException {
-        in = new Scanner(new File("test/numbertransformation.in"));
+        in = new Scanner(new File("test/numbtransform.in"));
         for(int i = 0; i < 5; i++) {
             try {
                 init();
