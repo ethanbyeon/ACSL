@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - samenessFactor",
+            "request": "launch",
+            "mainClass": "samenessFactor",
+            "projectName": "ACSL_8005866c"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - py",
+            "request": "launch",
+            "mainClass": "py",
+            "projectName": "ACSL_8005866c"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - numtransform",
             "request": "launch",
             "mainClass": "School.numtransform",

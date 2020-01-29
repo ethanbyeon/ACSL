@@ -18,6 +18,7 @@ class samenessFactor {
         while(in.hasNextLine()) {
             String[] split = (in.nextLine()).split(" ");
             align(split[0], split[1]);
+            break;
         }
 
         in.close();
@@ -25,15 +26,19 @@ class samenessFactor {
 
     static void align(String x, String y) {
 
-        ArrayList first = new ArrayList<String>();
-        ArrayList sec = new ArrayList<String>();
+        String first = "";
+        String sec = "";
 
-        for(int i = 0; i < first.size(); i++) {
-            for(int j = 0; j < sec.size(); j++) {
-                
+        for(int i = 0; i < Math.min(x.length(), y.length()); i++) {
+            // System.out.println(i);
+            if(x.charAt(i) == y.charAt(i)) {
+                x = x.replace("" + x.charAt(i), "");
+                y = y.replace("" + y.charAt(i), "");
+                i = -1;
             }
+            System.out.println(x + " " + y);
         }
-
+        
     }
 }
 
