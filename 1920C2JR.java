@@ -18,7 +18,6 @@ class samenessFactor {
         while(in.hasNextLine()) {
             String[] split = (in.nextLine()).split(" ");
             align(split[0], split[1]);
-            break;
         }
 
         in.close();
@@ -29,21 +28,75 @@ class samenessFactor {
         String first = "";
         String sec = "";
 
-        for(int i = 0; i < Math.min(x.length(), y.length()); i++) {
-            // System.out.println(i);
-            if(x.charAt(i) == y.charAt(i)) {
-                x = x.replace("" + x.charAt(i), "");
-                y = y.replace("" + y.charAt(i), "");
+        ArrayList f = new ArrayList<String>();
+        ArrayList s = new ArrayList<String>();
+
+        for(int i = 0; i < x.length(); i++) {
+            f.add(x.charAt(i));
+        }
+
+        for(int i = 0; i < y.length(); i++) {
+            s.add(y.charAt(i));
+        }
+
+        for(int i = 0; i < Math.min(f.size(), s.size()); i++) {
+            if(f.get(i) == s.get(i)) {
+                f.remove(i);
+                s.remove(i);
                 i = -1;
             }
-            System.out.println(x + " " + y);
         }
-        
-    }
-}
 
-//check left to right
-//find same index w/ same chars and remove
-//shift left
-//delete char that would result in the same loco when shifted
-//23, 27, 11, 68, -9
+        for(int i = 0; i < Math.min(f.size(), s.size() - 1); i++) {
+            if(f.get(i) == s.get(i)) {
+                f.remove(i);
+                s.remove(i);
+                i = -1;
+            }else if(f.get(i) == s.get(i + 1)){
+                s.remove(i);
+                i = -1;
+            }
+        }
+
+        //System.out.println(f + " " + s);
+
+        for(int i = 0; i < f.size(); i++) {
+            first += f.get(i);
+        }
+
+        for(int i = 0; i < s.size(); i++) {
+            sec += s.get(i);
+        }
+
+        System.out.println(calc(first, sec));
+    }
+
+    static int calc(String x, String y) {
+        int total = 0;
+
+        if(x.length() < y.length()) {
+            for(int i = 0; i < x.length(); i++){
+                char c = x.charAt(i);
+                char n = y.charAt(i);
+                //System.out.println(c - n);
+                total += c - n;
+            }
+            
+            int diff = y.length() - x.length();
+            total += diff;
+        }else if(x.length() > y.length()) {
+            for(int i = 0; i < y.length(); i++){
+                char c = x.charAt(i);
+                char n = y.charAt(i);
+                //System.out.println(c - n);
+                total += c - n;
+            }
+            
+            int diff = x.length() - y.length();
+            total += diff;
+        }
+
+        return total; 
+    }
+    
+}
