@@ -1,3 +1,4 @@
+
 /*
     Name: Ethan Byeon
     Grade: 11
@@ -11,34 +12,44 @@ import java.io.*;
 
 class samenessFactor {
 
+    static Scanner in;    
+    static ArrayList f, s;
+
     public static void main(String[] args) throws IOException{
         
-        Scanner in = new Scanner(new File("1920C2JRIN.in"));
+        in = new Scanner(new File("1920C2JRIN.in"));
         
-        while(in.hasNextLine()) {
-            String[] split = (in.nextLine()).split(" ");
-            align(split[0], split[1]);
-        }
+        solve();
 
         in.close();
     }
 
-    static void align(String x, String y) {
+    static void solve() {
 
-        String first = "";
-        String sec = "";
+        while(in.hasNextLine()) {
+            String[] split = (in.nextLine()).split(" ");
 
-        ArrayList f = new ArrayList<String>();
-        ArrayList s = new ArrayList<String>();
+            f = new ArrayList<String>();
+            s = new ArrayList<String>();
 
-        for(int i = 0; i < x.length(); i++) {
-            f.add(x.charAt(i));
+            for(int i = 0; i < split[0].length(); i++) {
+                f.add(split[0].charAt(i));
+            }
+
+            for(int i = 0; i < split[1].length(); i++) {
+                s.add(split[1].charAt(i));
+            }
+
+            while(true) {
+                remove();
+                if(!(shift())) break;
+            }
+            System.out.println(calc(f, s));
         }
+    }
 
-        for(int i = 0; i < y.length(); i++) {
-            s.add(y.charAt(i));
-        }
-
+    static void remove() {
+        
         for(int i = 0; i < Math.min(f.size(), s.size()); i++) {
             if(f.get(i) == s.get(i)) {
                 f.remove(i);
@@ -46,49 +57,53 @@ class samenessFactor {
                 i = -1;
             }
         }
+        
+    }
 
-        for(int i = 0; i < Math.min(f.size(), s.size() - 1); i++) {
-            if(f.get(i) == s.get(i)) {
+    static boolean shift() {
+
+        for(int i = 0; i < Math.min(f.size(), s.size()) - 1; i++) {
+            if(f.get(i) == s.get(i + 1)){
+                s.remove(i);
+                return true;
+            }else if(s.get(i) == f.get(i + 1)) {
                 f.remove(i);
-                s.remove(i);
-                i = -1;
-            }else if(f.get(i) == s.get(i + 1)){
-                s.remove(i);
-                i = -1;
+                return true;
             }
         }
 
-        //System.out.println(f + " " + s);
-
-        for(int i = 0; i < f.size(); i++) {
-            first += f.get(i);
-        }
-
-        for(int i = 0; i < s.size(); i++) {
-            sec += s.get(i);
-        }
-
-        System.out.println(calc(first, sec));
+        return false;
     }
 
-    static int calc(String x, String y) {
+    static int calc(ArrayList<String> a, ArrayList<String> b) {
+
         int total = 0;
 
-        if(x.length() < y.length()) {
+        String x = "";
+        String y = "";
+
+        for(int i = 0; i < a.size(); i++) {
+            x += String.valueOf(a.get(i));
+        }
+        
+        for(int i = 0; i < b.size(); i++) {
+            y += String.valueOf(b.get(i));
+        }
+
+        if(x.length() <= y.length()) {
             for(int i = 0; i < x.length(); i++){
                 char c = x.charAt(i);
                 char n = y.charAt(i);
-                //System.out.println(c - n);
                 total += c - n;
             }
             
             int diff = y.length() - x.length();
             total += diff;
-        }else if(x.length() > y.length()) {
+
+        } else if(x.length() >= y.length()) {
             for(int i = 0; i < y.length(); i++){
                 char c = x.charAt(i);
                 char n = y.charAt(i);
-                //System.out.println(c - n);
                 total += c - n;
             }
             
