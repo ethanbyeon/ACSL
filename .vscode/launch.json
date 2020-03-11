@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - veitchDiagram",
+            "request": "launch",
+            "mainClass": "veitchDiagram",
+            "projectName": "ACSL_8005866c"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - samenessFactor",
             "request": "launch",
             "mainClass": "samenessFactor",

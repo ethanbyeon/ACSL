@@ -13,7 +13,7 @@ import java.io.*;
 class samenessFactor {
 
     static Scanner in;    
-    static ArrayList f, s;
+    static ArrayList<String> f, s;
 
     public static void main(String[] args) throws IOException{
         
@@ -33,11 +33,11 @@ class samenessFactor {
             s = new ArrayList<String>();
 
             for(int i = 0; i < split[0].length(); i++) {
-                f.add(split[0].charAt(i));
+                f.add("" + split[0].charAt(i));
             }
 
             for(int i = 0; i < split[1].length(); i++) {
-                s.add(split[1].charAt(i));
+                s.add("" + split[1].charAt(i));
             }
 
             while(true) {
