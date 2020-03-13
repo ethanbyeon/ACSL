@@ -94,8 +94,6 @@ public class veitchDiagram {
     // TALLYS APPROPRIATE INDEXES
     static void tally() {
 
-        //System.out.println(yes + "\n" + not);
-
         grid = new int[4][4];
         
         if(not.size() != 0) {
@@ -164,7 +162,7 @@ public class veitchDiagram {
 
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 4; j++) {
-                if(grid[i][j] == count) veitch[i][j]++;
+                if(grid[i][j] == count) veitch[i][j] = 1;
             }
         }
 
