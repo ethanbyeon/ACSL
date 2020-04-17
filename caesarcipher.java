@@ -9,6 +9,7 @@ public class caesarcipher {
     static String decrypt, msg = "";
     static int key;
     static char c;
+    
     public static void main(String[] args) throws IOException {
         
         in = new Scanner(System.in);

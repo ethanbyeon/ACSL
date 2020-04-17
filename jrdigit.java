@@ -1,9 +1,12 @@
+
 import java.util.*;
 import java.io.*;
 
 public class jrdigit {
+
     static Scanner in;
     static String s;
+    
     public static void main(String[] args) throws IOException {
         in = new Scanner(new File("test/jrdigit.in"));
         

@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - patolli",
+            "request": "launch",
+            "mainClass": "patolli",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - duplicates",
+            "request": "launch",
+            "mainClass": "duplicates",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - vestigium",
+            "request": "launch",
+            "mainClass": "vestigium",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - veitchDiagram",
             "request": "launch",
             "mainClass": "veitchDiagram",

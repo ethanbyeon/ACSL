@@ -2,10 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class digit {
+    
     static Scanner in;
 
     static String digit;
     static int n; 
+
     public static void main(String args[]) throws IOException {
         in = new Scanner(new File("test/digit.in"));
         for(int i = 0; i < 5; i++){

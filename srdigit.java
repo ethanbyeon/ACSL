@@ -1,10 +1,14 @@
+
 import java.util.*;
 import java.io.*;
 
 public class srdigit {
+    
     static Scanner in;
+    
     static String s;
     static int n;
+    
     public static void main(String[] args) throws IOException {
         in = new Scanner(new File("test/srdigit.in"));
         for(int i = 0; i < 5; i++) {
