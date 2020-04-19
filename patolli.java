@@ -42,7 +42,6 @@ public class patolli {
 
     }
     
-    static int x;
     static void solve() {
 
         for(int die: dice) {
@@ -50,7 +49,6 @@ public class patolli {
             
             int current = p.get(0);
             int next = current + die;
-            x = next;
 
             if(next == 52) {
                 p.remove(0);
@@ -85,24 +83,23 @@ public class patolli {
         occ.addAll(0, opp);
         occ.addAll(0, p);
         Collections.sort(occ);
-        System.out.println(p + " next: " + x + " " + occ);
     }
     
     static boolean isPrime(int n) {
-        System.out.println("PRIME");
+        
         for(int i = 2; i <= n / 2; i++) if(n % i == 0) return false;
         return true;
     }
     
     static boolean isSquare(int n) {
-        System.out.println("SQUARE");
+        
         int x = (int) Math.sqrt(n);
         if(Math.pow(x, 2) == n) return true;
         else return false;
     }
     
     static boolean isRule9(int c, int n) {
-        System.out.println("" + 9);
+        
         if(c <= 49 && n >= 51) return true;
         else if(c <= 44 && n >= 46) return true;
         else if(c <= 39 && n >= 41) return true;
@@ -137,16 +134,9 @@ public class patolli {
     }
     
     static int moveRule9(int c, int n, int d) {
-        if(n % d == 0 && !isOccupied(n)) return n;
         
-        for(int i = n + d; i < 52; i+=d) {
-            System.out.println(n);
-            if(!isOccupied(i)) {
-                System.out.println("NEXT: " + i);
-                return i;
-            }
-        }
-
+        for(int i = 0; i <= n; i+=d) if(i > c && !isOccupied(i) && i % d == 0) return i;
+        
         return c;
     }
 }
