@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - egyptianMult",
+            "request": "launch",
+            "mainClass": "egyptianMult",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - patolli",
             "request": "launch",
             "mainClass": "patolli",
