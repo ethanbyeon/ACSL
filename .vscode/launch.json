@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - syllables",
+            "request": "launch",
+            "mainClass": "syllables",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - passort",
+            "request": "launch",
+            "mainClass": "passort",
+            "projectName": "ACSL_af648afe"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Solution",
             "request": "launch",
             "mainClass": "Solution",
