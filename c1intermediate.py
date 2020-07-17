@@ -1,4 +1,12 @@
 
+def check(n):
+
+    while n >= 26:
+        n -= 26
+
+    return n
+
+
 with open('c1intermediate.in') as fp:
 
     alpha = "0ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -14,17 +22,20 @@ with open('c1intermediate.in') as fp:
 
             # A - E
             if x in range(1, 6): 
-                count = (x * 2) + count
-                letters.append(alpha[count])
+                x = x * 2
+                x = check(x)
+                count = alpha.index(alpha[x]) + count
 
             # F - J
             if x in range(6, 11):
-                count = (x % 3) * 5
-                count = alpha.index(alpha[count]) + count
+                x = (x % 3) * 5
+                x = check(x)
+                count = alpha.index(alpha[x]) + count
             
             # K - O
             if x in range(11, 16):
                 x = (x // 4) * 8
+                x = check(x)
                 count = alpha.index(alpha[x]) + count
             
             # P - T
@@ -35,29 +46,28 @@ with open('c1intermediate.in') as fp:
                     sum += left
                     x //= 10
 
-                count = (sum * 10) + count
+                x = sum * 10
+
+                x = check(x)
+                count = alpha.index(alpha[x]) + count
             
             # U - Z
             if x in range(21, 27):
 
                 factor = []
-                count = 0
+                c = 0
 
                 for i in range(1, x + 1):
                     if x % i == 0:
-                        count += 1
+                        c += 1
                         factor.append(i)
 
                 x = factor[-2] * 12
 
-                while x >= 26:
-                    x -= 26
-                print(x)
-                print(count)
+                x = check(x)
                 count = alpha.index(alpha[x]) + count
 
-            while count >= 26:
-                count -= 26
+            count = check(count)
         
             print(str(count) + " " + alpha[count])
         
