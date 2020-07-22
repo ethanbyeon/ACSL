@@ -1,8 +1,9 @@
 
 def check(n):
-
-    while n >= 26:
-        n -= 26
+    
+    if n != 26:
+        while n > 26:
+            n -= 26
 
     return n
 
@@ -11,7 +12,8 @@ with open('c1intermediate.in') as fp:
 
     alpha = "0ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-    for i in range(3):
+    letters = []
+    for i in range(8):
 
         line = fp.readline().split()[:-1]
         letters = []
@@ -20,26 +22,16 @@ with open('c1intermediate.in') as fp:
         for c in line:
             x = ord(c.lower()) - 96
 
-            # A - E
-            if x in range(1, 6): 
+            if x in range(1, 6): # A - E
                 x = x * 2
-                x = check(x)
-                count = alpha.index(alpha[x]) + count
 
-            # F - J
-            if x in range(6, 11):
+            elif x in range(6, 11): # F - J
                 x = (x % 3) * 5
-                x = check(x)
-                count = alpha.index(alpha[x]) + count
             
-            # K - O
-            if x in range(11, 16):
+            elif x in range(11, 16): # K - O
                 x = (x // 4) * 8
-                x = check(x)
-                count = alpha.index(alpha[x]) + count
             
-            # P - T
-            if x in range(16, 21):
+            elif x in range(16, 21): # P - T
                 sum = 0
                 while(x > 0):
                     left = x % 10
@@ -47,12 +39,8 @@ with open('c1intermediate.in') as fp:
                     x //= 10
 
                 x = sum * 10
-
-                x = check(x)
-                count = alpha.index(alpha[x]) + count
             
-            # U - Z
-            if x in range(21, 27):
+            elif x in range(21, 27): # U - Z
 
                 factor = []
                 c = 0
@@ -64,10 +52,9 @@ with open('c1intermediate.in') as fp:
 
                 x = factor[-2] * 12
 
-                x = check(x)
-                count = alpha.index(alpha[x]) + count
+            x = check(x + count)
+            count = alpha.index(alpha[x])
+            letters.append(alpha[count])
 
-            count = check(count)
-        
-            print(str(count) + " " + alpha[count])
+        print(*letters, sep=' ')
         
