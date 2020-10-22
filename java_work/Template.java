@@ -1,19 +1,17 @@
+package java_work;
 
 import java.io.*;
 import java.util.*;
 
-class template  {
+class Template  {
 
     static Scanner in;
 
-    public static void init() {
-
-    }
+    public static void init() { }
 
     public static String solve() {
         
         String result = "";
-        
         
         return result;
     }
@@ -31,7 +29,7 @@ class template  {
                 e.printStackTrace();
             }
         }
+
         in.close();
     }
-
 }

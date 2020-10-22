@@ -1,21 +1,22 @@
+package java_work;
 
 import java.io.*;
 import java.util.*;
 
-class syllables  {
+class Syllables  {
 
     static Scanner in;
 
-    public static void init() {
-
-    }
+    public static void init() { }
 
     public static boolean isVowel(char c) {
+        
         if( c== 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             return true;
         }else {
             return false;
         }
+
     }
 
     public static String solve() {
@@ -25,6 +26,7 @@ class syllables  {
 
         int count = 0;
         boolean prev = false;
+
         for(int i = 0; i < word.length(); i++) {
             if(word.contains("a") || word.contains("e") || word.contains("i") || word.contains("o") || word.contains("u")) {
                 if(isVowel(word.charAt(i)) && !((word.charAt(i) == 'e') && (i == word.length() - 1))) {
@@ -40,6 +42,7 @@ class syllables  {
                 }
             }
         }
+
         System.out.println(count);
         
         return result + count;
@@ -59,7 +62,7 @@ class syllables  {
                 e.printStackTrace();
             }
         }
+
         in.close();
     }
-
 }

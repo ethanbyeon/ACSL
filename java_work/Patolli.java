@@ -1,33 +1,15 @@
+package java_work;
 
 import java.util.*;
 import java.io.*;
 
-public class patolli {
+public class Patolli {
 
     static Scanner in;
     
     static ArrayList<Integer> opp, p, dice, occ;
-
-    public static void main(String[] args) throws IOException {
-        
-        in = new Scanner(new File("test/patolli.in"));
-
-        for(int i = 1; i < 6; i++) {
-            try {
-
-                init();
-                System.out.print(i + ": ");
-                solve();
-
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        in.close();
-    }
-
-    static void init() {
+    
+    public static void init() {
 
         opp = new ArrayList<Integer>();
         p = new ArrayList<Integer>();
@@ -39,10 +21,9 @@ public class patolli {
 
         int dnum = in.nextInt();
         for(int i = 0; i < dnum; i++) dice.add(in.nextInt());
-
     }
     
-    static void solve() {
+    public static void solve() {
 
         for(int die: dice) {
             Collections.sort(p);
@@ -64,41 +45,43 @@ public class patolli {
         }
 
         Collections.sort(p);
+
         for(int i = 0; i < p.size(); i++) {
             if(i <= p.size()) System.out.print(p.get(i) + " ");
             else System.out.print(p.get(i));
         }
+
         System.out.println();
     }
     
-    static boolean isOccupied(int n) {
+    public static boolean isOccupied(int n) {
         reset();
 
         if(occ.contains(n)) return true;
         return false;
     }
     
-    static void reset() {
+    public static void reset() {
         occ = new ArrayList<Integer>();
         occ.addAll(0, opp);
         occ.addAll(0, p);
         Collections.sort(occ);
     }
     
-    static boolean isPrime(int n) {
-        
+    public static boolean isPrime(int n) {
         for(int i = 2; i <= n / 2; i++) if(n % i == 0) return false;
         return true;
     }
     
-    static boolean isSquare(int n) {
+    public static boolean isSquare(int n) {
         
         int x = (int) Math.sqrt(n);
+
         if(Math.pow(x, 2) == n) return true;
         else return false;
     }
     
-    static boolean isRule9(int c, int n) {
+    public static boolean isRule9(int c, int n) {
         
         if(c <= 49 && n >= 51) return true;
         else if(c <= 44 && n >= 46) return true;
@@ -113,7 +96,7 @@ public class patolli {
         return false;
     }
     
-    static int movePrime(int n) {
+    public static int movePrime(int n) {
 
         for(int i = 0; i < 6; i++) {
             if(isOccupied(n + 1)) return n;
@@ -123,7 +106,7 @@ public class patolli {
         return n;
     }
     
-    static int moveSquare(int n) {
+    public static int moveSquare(int n) {
         
         for(int i = 0; i < 6; i++) {
             if(isOccupied(n - 1)) return n;
@@ -133,10 +116,27 @@ public class patolli {
         return n;
     }
     
-    static int moveRule9(int c, int n, int d) {
-        
+    public static int moveRule9(int c, int n, int d) {
         for(int i = 0; i <= n; i+=d) if(i > c && !isOccupied(i) && i % d == 0) return i;
-        
         return c;
+    }
+
+    public static void main(String[] args) throws IOException {
+        
+        in = new Scanner(new File("test/patolli.in"));
+
+        for(int i = 1; i < 6; i++) {
+            try {
+
+                init();
+                System.out.print(i + ": ");
+                solve();
+
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        in.close();
     }
 }

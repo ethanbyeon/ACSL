@@ -1,37 +1,27 @@
+package java_work;
 
 import java.util.*;
 import java.io.*;
 
-public class srdigit {
+public class SrDigit {
     
     static Scanner in;
     
     static String s;
     static int n;
-    
-    public static void main(String[] args) throws IOException {
-        in = new Scanner(new File("test/srdigit.in"));
-        for(int i = 0; i < 5; i++) {
-            try {
-                init();
-                System.out.print(i + 1 + ": ");
-                solve();
-            }catch(Exception e) {
-                System.out.println("Error");
-                e.printStackTrace();
-            }
-        }
-        in.close();
-    }
 
-    static void init() {
+    public static void init() {
+
         String[] a = (in.nextLine()).split(" ");
+
         s = a[0];
         n = Integer.parseInt(a[1]);
     }
 
-    static String solve() {
+    public static String solve() {
+
         int sum = 0;
+
         for(int i = 0; i < s.length(); i+=n){
             if(i + n > s.length()){
                 int num = (i + n) - s.length();
@@ -46,6 +36,25 @@ public class srdigit {
         }
 
         System.out.println(sum);
+        
         return "";
+    }
+    
+    public static void main(String[] args) throws IOException {
+        
+        in = new Scanner(new File("test/srdigit.in"));
+        
+        for(int i = 0; i < 5; i++) {
+            try {
+                init();
+                System.out.print(i + 1 + ": ");
+                solve();
+            }catch(Exception e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+        }
+
+        in.close();
     }
 }

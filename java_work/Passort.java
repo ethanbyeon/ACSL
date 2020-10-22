@@ -1,12 +1,13 @@
+package java_work;
 
 import java.io.*;
 import java.util.*;
 
-class passort  {
+public class Passort {
 
     static Scanner in;
 
-    public static void init() {}
+    public static void init() { }
 
     public static String solve() {
         
@@ -17,6 +18,7 @@ class passort  {
         
         int temp;
         char[] ch = list.toCharArray();
+
         for(int i = 0; i < ch.length; i++) {
             for(int j = i + 1; j < ch.length; j++) {
                 if(ch[i] > ch[j]) {
@@ -28,12 +30,13 @@ class passort  {
         }
 
         System.out.println(count);
+        
         return result + count;
     }
 
     public static void main(String[] args) throws IOException {
 
-        in = new Scanner(new File("passort.in"));
+        in = new Scanner(new File("test/passort.in"));
 
         for(int i = 0; i < 5; i++) {
             try {
@@ -45,7 +48,7 @@ class passort  {
                 e.printStackTrace();
             }
         }
+
         in.close();
     }
-
 }

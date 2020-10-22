@@ -1,3 +1,7 @@
+package java_work;
+
+import java.util.*;
+import java.io.*;
 
 /*
     Name: Ethan Byeon
@@ -7,26 +11,15 @@
     Contest 2
 */
 
-import java.util.*;
-import java.io.*;
-
-class samenessFactor {
+class SamenessFactor {
 
     static Scanner in;    
     static ArrayList<String> f, s;
 
-    public static void main(String[] args) throws IOException{
-        
-        in = new Scanner(new File("1920C2JRIN.in"));
-        
-        solve();
-
-        in.close();
-    }
-
-    static void solve() {
+    public static void solve() {
 
         while(in.hasNextLine()) {
+
             String[] split = (in.nextLine()).split(" ");
 
             f = new ArrayList<String>();
@@ -44,12 +37,12 @@ class samenessFactor {
                 remove();
                 if(!(shift())) break;
             }
+
             System.out.println(calc(f, s));
         }
     }
 
-    static void remove() {
-        
+    public static void remove() {
         for(int i = 0; i < Math.min(f.size(), s.size()); i++) {
             if(f.get(i) == s.get(i)) {
                 f.remove(i);
@@ -57,10 +50,9 @@ class samenessFactor {
                 i = -1;
             }
         }
-        
     }
 
-    static boolean shift() {
+    public static boolean shift() {
 
         for(int i = 0; i < Math.min(f.size(), s.size()) - 1; i++) {
             if(f.get(i) == s.get(i + 1)){
@@ -75,7 +67,7 @@ class samenessFactor {
         return false;
     }
 
-    static int calc(ArrayList<String> a, ArrayList<String> b) {
+    public static int calc(ArrayList<String> a, ArrayList<String> b) {
 
         int total = 0;
 
@@ -113,5 +105,13 @@ class samenessFactor {
 
         return total; 
     }
-    
+
+    public static void main(String[] args) throws IOException{
+        
+        in = new Scanner(new File("1920C2JRIN.in"));
+        
+        solve();
+
+        in.close();
+    }    
 }

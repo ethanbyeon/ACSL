@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - CaesarCipher",
+            "request": "launch",
+            "mainClass": "java_work.CaesarCipher",
+            "projectName": "ACSL_6f1ebe9c"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - syllables",
             "request": "launch",
             "mainClass": "syllables",

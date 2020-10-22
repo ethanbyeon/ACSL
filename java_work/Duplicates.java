@@ -1,36 +1,19 @@
+package java_work;
 
 import java.io.*;
 import java.util.*;
 
-public class duplicates {
+public class Duplicates {
     
     static Scanner in;
 
     static int position;
     static ArrayList<String> words;
 
-    public static void main(String[] args) throws IOException {
-        
-        in = new Scanner(new File("test/duplicates.in"));
-
-        for(int i = 0; i < 1; i++) {
-            try {
-
-                init();
-                //System.out.print(i + 1 + ": ");
-                solve();
-
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-        in.close();
-
-    }
-
-    static void init() {
+    public static void init() {
 
         String[] split = ((in.nextLine()).toLowerCase()).split(" ");
+        
         position = Integer.parseInt(split[0]);
         words = new ArrayList<String>();
         
@@ -40,9 +23,9 @@ public class duplicates {
 
     }
 
-    static void solve() {
+    public static void solve() {
 
-        String pos = "";
+        // String pos = "";
 
         for(String word: words) {
             // char[] letters = new char[word.length()];
@@ -74,5 +57,24 @@ public class duplicates {
         }
 
         //System.out.println(pos.length());
+    }
+
+    public static void main(String[] args) throws IOException {
+        
+        in = new Scanner(new File("test/duplicates.in"));
+
+        for(int i = 0; i < 1; i++) {
+            try {
+
+                init();
+                //System.out.print(i + 1 + ": ");
+                solve();
+
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        in.close();
     }
 }

@@ -8,7 +8,7 @@ def check(n):
     return n
 
 
-with open('c1intermediate.in') as fp:
+with open('test/c1intermediate.in') as fp:
 
     alpha = "0ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 

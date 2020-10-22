@@ -1,37 +1,23 @@
+package java_work;
 
 import java.io.*;
 import java.util.*;
 
-class egyptianMult {
+class EgyptianMult {
 
     static Scanner in;
 
     static int large, small = 0;
 
-    public static void main(String[] args) throws IOException {
-        
-        in = new Scanner(new File("test/egyptianMult.in"));
-        
-        for(int i = 0; i < 10; i++) {
-            try {
-                init();
-                System.out.print(i + 1 + ": ");
-                solve();
+    public static void init() {
 
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-        in.close();
-    }
-
-    static void init() {
         String[] split = (in.nextLine()).split("\\s*,\\s*");
+
         large = Integer.parseInt(split[0]);
         small = Integer.parseInt(split[1]);
     }
 
-    static String solve() {     
+    public static String solve() {     
         
         String ans = "";
         
@@ -59,4 +45,21 @@ class egyptianMult {
         return ans;
     }
 
+    public static void main(String[] args) throws IOException {
+        
+        in = new Scanner(new File("test/egyptianMult.in"));
+        
+        for(int i = 0; i < 10; i++) {
+            try {
+                init();
+                System.out.print(i + 1 + ": ");
+                solve();
+
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        in.close();
+    }
 }

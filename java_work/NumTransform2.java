@@ -1,36 +1,24 @@
-//Ethan Byeon Grade 11
+package java_work;
 
 import java.util.*;
 import java.io.*;
 
-public class numtransform {
+public class NumTransform2 {
 
     static Scanner in;
     static String s;
     static int n;
-    
-    public static void main(String[] args) throws IOException {
-        in = new Scanner(new File("test/numbtransform.in"));
-        for(int i = 0; i < 5; i++) {
-            try {
-                init();
-                System.out.print(i + 1 + ": ");
-                solve();
-            }catch(Exception e) {
-                System.out.println("Error");
-                e.printStackTrace();
-            }
-        }
-        in.close();
-    }
 
-    static void init() {
+    public static void init() {
+
         String[] a = (in.nextLine()).split(" ");
+
         s = a[0];
         n = Integer.parseInt(a[1]);
     }
 
-    static String solve() {
+    public static String solve() {
+
         String num = "";
         int p = s.length() - n;
         int pdigit = Integer.parseInt(s.substring(p, p + 1));
@@ -48,7 +36,27 @@ public class numtransform {
                 num += Math.abs(Integer.parseInt(s.substring(i, i + 1)) - pdigit);
             }
         }
+
         System.out.println(num);
+
         return "";
+    }
+    
+    public static void main(String[] args) throws IOException {
+
+        in = new Scanner(new File("test/numtransform2.in"));
+        
+        for(int i = 0; i < 5; i++) {
+            try {
+                init();
+                System.out.print(i + 1 + ": ");
+                solve();
+            }catch(Exception e) {
+                System.out.println("Error");
+                e.printStackTrace();
+            }
+        }
+
+        in.close();
     }
 }

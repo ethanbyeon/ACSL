@@ -1,8 +1,9 @@
+package java_work;
 
 import java.io.*;
 import java.util.*;
 
-public class veitchDiagram {
+public class VeitchDiagram {
 
     static Scanner in;
 
@@ -14,28 +15,7 @@ public class veitchDiagram {
 
     static int count; // LENGTH OF AND GATES
 
-    public static void main(String[] args) throws IOException {
-
-        in = new Scanner(new File("test/veitch.in"));
-
-        for(int i = 0; i < 10; i++) {
-
-            try {
-
-                init();
-                System.out.print(i + 1 + ": ");
-                solve();
-
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-        in.close();
-
-    }
-
-    static void init() {
+    public static void init() {
 
         veitch = new int[4][4];
 
@@ -65,19 +45,18 @@ public class veitchDiagram {
             yes.clear();
             count = 0;
         }
-
     }
 
-    static void solve() {
+    public static void solve() {
         System.out.println(toHex().toUpperCase());
     }
 
     // CONVERTS EACH ROW IN VEITCH DIAGRAM TO BINARY THEN TO HEXADECIMAL
-    static String toHex() {
+    public static String toHex() {
 
         String hex = "";
-
         String num = "";
+
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 4; j++) {
                 num += veitch[i][j];
@@ -92,7 +71,7 @@ public class veitchDiagram {
     }
 
     // TALLYS APPROPRIATE INDEXES
-    static void tally() {
+    public static void tally() {
 
         grid = new int[4][4];
         
@@ -158,7 +137,7 @@ public class veitchDiagram {
     }
 
     // CHECKS IF INDEX OF GRID EQUALS TO THE LENGTH OF THE AND GATE
-    static void check() {
+    public static void check() {
 
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 4; j++) {
@@ -168,4 +147,20 @@ public class veitchDiagram {
 
     }
 
+    public static void main(String[] args) throws IOException {
+
+        in = new Scanner(new File("test/veitch.in"));
+
+        for(int i = 0; i < 10; i++) {
+            try {
+                init();
+                System.out.print(i + 1 + ": ");
+                solve();
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        in.close();
+    }
 }
